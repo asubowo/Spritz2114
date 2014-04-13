@@ -2,7 +2,7 @@ package cs2114.spritz;
 
 import sofia.app.Screen;
 import sofia.widget.ImageView;
-
+import java.util.Scanner;
 
 /**
  * This is the logic base for the Spritz application.
@@ -21,6 +21,8 @@ public class Spritz {
 	public Spritz(){
 		
 	}
+	
+	
 	
 	//TODO - We can parse .txt files, so let's place one into the working folder.
 	//From there, we can read the .txt file. Or we can try to parse online files
