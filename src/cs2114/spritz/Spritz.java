@@ -1,5 +1,9 @@
 package cs2114.spritz;
 
+import sofia.app.Screen;
+import sofia.widget.ImageView;
+
+
 /**
  * This is the logic base for the Spritz application.
  * 
