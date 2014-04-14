@@ -57,5 +57,18 @@ public class Spritz {
 		return dataArray.getCurrent();
 	}
 	
+	/**
+	 * Tells Spritz to move to the next word in the data array
+	 */
+	public void next() {
+		dataArray.next();
+	}
+	
+	/**
+	 * Tells Spritz to move to the previous word in the data array
+	 */
+	public void previous() {
+		dataArray.previous();
+	}
 	
 }
