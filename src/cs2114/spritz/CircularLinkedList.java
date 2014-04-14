@@ -1,3 +1,5 @@
+package cs2114.spritz;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -10,7 +12,7 @@ import java.util.NoSuchElementException;
  * @author Andrew Subowo (asubowo)
  * @version (2014.3.29)
  */
-public class CircularLinkedList<E> implements CircularList<E>
+public class CircularLinkedList<E>
 {
     //~ Fields ................................................................
 
