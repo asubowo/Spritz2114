@@ -3,6 +3,7 @@ package cs2114.spritz;
 import sofia.app.Screen;
 import sofia.widget.ImageView;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.IOException;
 
@@ -21,24 +22,29 @@ public class Spritz {
 	private Scanner input;
 	private String token;
 	private CircularLinkedList<String> dataArray;
-	
-	
+
+
 	/**
 	 * Constructor for this class
-	 * The default class displays the embedded text file, Lorem Ipsum.
+	 * The default class displays the embedded text file, Lorem Ipsum
+	 * @throws FileNotFoundException 
 	 */
-	public Spritz() throws IOException {
+	public Spritz() throws FileNotFoundException {
 		testFile = new File("\resources\testFile.txt");
-		input = new Scanner(testFile);
+		
+			input = new Scanner(testFile);
+
+		
+
 		dataArray = new CircularLinkedList<String>();
 		parseInput();
 	}
-	
+
 	/**
 	 * Overloaded constructor - able to take in arguments
 	 */
 	//public Spritz(website URL, etc.)
-	
+
 	/**
 	 * Parses the input
 	 */
@@ -49,6 +55,10 @@ public class Spritz {
 		}
 	}
 	
+	public String print(){
+		return dataArray.toString();
+	}
+
 	/**
 	 * Returns the current word
 	 * @return The current word in the data stream
@@ -56,19 +66,21 @@ public class Spritz {
 	public String getCurrentWord() {
 		return dataArray.getCurrent();
 	}
-	
+
 	/**
 	 * Tells Spritz to move to the next word in the data array
 	 */
 	public void next() {
 		dataArray.next();
 	}
-	
+
 	/**
 	 * Tells Spritz to move to the previous word in the data array
 	 */
 	public void previous() {
 		dataArray.previous();
 	}
-	
+
+
+
 }

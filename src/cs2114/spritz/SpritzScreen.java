@@ -1,5 +1,7 @@
 package cs2114.spritz;
 
+import java.io.FileNotFoundException;
+
 import sofia.app.Screen;
 import android.widget.TextView;
 
@@ -18,9 +20,10 @@ public class SpritzScreen {
     
     /**
      * Creates a new blank screen
+     * @throws FileNotFoundException 
      */
-    public void initialize(){
+    public void initialize() throws FileNotFoundException{
         spritz = new Spritz();
-        textView1.setText("");
+        //textView1.setText("");
     }
 }
