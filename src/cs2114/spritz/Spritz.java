@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.IOException;
+import java.net.URL;
 
 /**
  * This is the logic base for the Spritz application.
@@ -30,8 +31,8 @@ public class Spritz {
 	 * @throws FileNotFoundException 
 	 */
 	public Spritz() throws FileNotFoundException {
-		testFile = new File("\resources\testFile.txt");
-		
+			URL url = getClass().getResource("testFile.txt");
+			File testFile = new File(url.getPath());
 			input = new Scanner(testFile);
 
 		

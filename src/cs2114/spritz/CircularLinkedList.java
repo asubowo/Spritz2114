@@ -153,14 +153,15 @@ public class CircularLinkedList<E>
      */
     public String toString()
     {
-        String temp = "[";
+    
+        String temp = "";
 
         if (size != 0) {
             for (int c = 0; c < size - 1; c++) {
-                temp += getCurrent() + ", ";
+                temp += getCurrent() + " ";
                 next();
             }
-            temp += getCurrent() + "]";
+            temp += getCurrent();
             next();
         }
 
