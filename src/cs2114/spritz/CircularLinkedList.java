@@ -1,5 +1,3 @@
-package cs2114.restaurant;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
