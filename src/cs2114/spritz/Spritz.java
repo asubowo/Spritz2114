@@ -70,6 +70,7 @@ public class Spritz {
 
 	/**
 	 * Tells Spritz to move to the next word in the data array
+	 * and return the appropriate string
 	 */
 	public void next() {
 		dataArray.next();
