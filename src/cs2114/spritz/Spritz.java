@@ -21,20 +21,13 @@ public class Spritz {
 	private Scanner input;
 	
 	
+	
 	/**
 	 * Constructor for this class
 	 */
-	public Spritz(){
+	public Spritz() throws IOException {
 		testFile = new File("\resources\testFile.txt");
 		input = new Scanner(testFile);
 	}
 	
-	
-	
-	//TODO - We can parse .txt files, so let's place one into the working folder.
-	//From there, we can read the .txt file. Or we can try to parse online files
-	//instead.
-	//Thoughts?
-	//I think that will work. We should at least have some back-end stuff to
-	//turn in by Wednesday.
 }
