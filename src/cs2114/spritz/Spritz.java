@@ -49,5 +49,13 @@ public class Spritz {
 		}
 	}
 	
+	/**
+	 * Returns the current word
+	 * @return The current word in the data stream
+	 */
+	public String getCurrentWord() {
+		return dataArray.getCurrent();
+	}
+	
 	
 }
