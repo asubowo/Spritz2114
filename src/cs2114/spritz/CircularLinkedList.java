@@ -159,10 +159,10 @@ public class CircularLinkedList<E>
         if (size != 0) {
             for (int c = 0; c < size - 1; c++) {
                 temp += getCurrent() + " ";
-                next();
+                previous();
             }
             temp += getCurrent();
-            next();
+            previous();
         }
 
         else {
