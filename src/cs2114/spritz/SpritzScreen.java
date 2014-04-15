@@ -1,7 +1,11 @@
 package cs2114.spritz;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 
 import com.spritz2114.R;
 
@@ -30,11 +34,14 @@ public class SpritzScreen extends Screen {
      * Creates a new blank screen
      */
     public void initialize() {
+    	
         spritz = new Spritz();
         spritzDisplay.setText("");
         
-        //TESTING
-        is = getResources().openRawResource(R.raw.testfile);
+        //TESTING - DOESN'T WORK.
+        //is = getResources().openRawResource(R.raw.testfile);
+        //InputStreamReader inputStreamReader = new InputStreamReader(is);
+        //BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
     }
     
     /**

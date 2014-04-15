@@ -1,10 +1,16 @@
 package cs2114.spritz;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.net.URL;
+
+import com.spritz2114.R;
+
+import sofia.app.Screen;
 
 import android.content.res.AssetManager;
 
@@ -17,32 +23,42 @@ import android.content.res.AssetManager;
  * @version 4.13.2014
  *
  */
-public class Spritz {
+public class Spritz extends Screen {
 
 	private File testFile;
 	private URL urlTarget;
 	private Scanner input;
 	private String token;
 	private CircularLinkedList<String> dataArray;
-
+	
 	/**
 	 * Constructor for this class
 	 * The default class displays the embedded text file, Lorem Ipsum
 	 */
 	public Spritz() {
-		
-		//is = getResources().openRawResource(R.raw.testfile);
+
+		//TODO
+		/*
+		 * THIS IS WHAT WE NEED TO DO:
+		 * Figure out a way to parse in text files. We can sideload .txt files and read
+		 * them.
+		 * See this: http://stackoverflow.com/questions/12421814/how-to-read-text-file-in-android
+		 * 
+		 * OR - we can change our test case up a bit and read a text file found on the
+		 * internet instead. Maybe wikipedia for example.
+		 */
 		
 		//The code below DOES NOT WORK for android
 		urlTarget = getClass().getResource("testFile.txt");
 		testFile = new File(urlTarget.getPath());
+		
 		
 		try {
 			input = new Scanner(testFile);
 		} catch (FileNotFoundException e) {
 			System.out.println("The test file was not found.");
 		}
-
+		
 		dataArray = new CircularLinkedList<String>();
 		parseInput();
 	}

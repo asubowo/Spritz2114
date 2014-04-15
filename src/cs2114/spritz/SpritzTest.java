@@ -20,8 +20,8 @@ import student.TestCase;
 
 public class SpritzTest extends TestCase{
 
-	private Spritz app;
-
+	private SpritzScreen app;
+	private Spritz sp;
 	/**
 	 * Set up method - called before every test method
 	 */
@@ -34,8 +34,8 @@ public class SpritzTest extends TestCase{
 	 */
 	public void testParse() {
 
-		app = new Spritz();
-		app.parseInput();
-		System.out.println(app.print());
+	//	sp = new Spritz();
+	//	sp.parseInput();
+		//System.out.println(app.print());
 	}
 }
