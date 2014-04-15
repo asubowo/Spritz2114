@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
  * @param <E> the type of element stored in the list
  *
  * @author Andrew Subowo (asubowo)
- * @version (2014.3.29)
+ * @version 4.13.2014
  */
 public class CircularLinkedList<E>
 {
@@ -155,14 +155,13 @@ public class CircularLinkedList<E>
     {
     
         String temp = "";
-
+        previous();
         if (size != 0) {
             for (int c = 0; c < size - 1; c++) {
                 temp += getCurrent() + " ";
                 previous();
             }
             temp += getCurrent();
-            previous();
         }
 
         else {

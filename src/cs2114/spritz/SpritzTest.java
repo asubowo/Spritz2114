@@ -21,24 +21,20 @@ import student.TestCase;
 public class SpritzTest extends TestCase{
 
 	private Spritz app;
-	
+
 	/**
 	 * Set up method - called before every test method
 	 */
 	public void setUp() {
 		//Nothing to do here
 	}
-	
+
 	/**
 	 * Tests file parsing and input
 	 */
 	public void testParse() {
-		try {
-			app = new Spritz();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		}
+
+		app = new Spritz();
 		app.parseInput();
 		System.out.println(app.print());
 	}

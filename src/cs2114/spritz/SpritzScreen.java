@@ -1,8 +1,12 @@
 package cs2114.spritz;
 
 import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+import com.spritz2114.R;
 
 import sofia.app.Screen;
+import android.widget.Button;
 import android.widget.TextView;
 
 /**
@@ -14,16 +18,52 @@ import android.widget.TextView;
  * @version 4.13.2014
  *
  */
-public class SpritzScreen {
+public class SpritzScreen extends Screen {
     
-    Spritz spritz;
+    private Spritz spritz;
+    private TextView spritzDisplay;
+    private Button next;
+    private Button previous;
+    private InputStream is;
     
     /**
      * Creates a new blank screen
-     * @throws FileNotFoundException 
      */
-    public void initialize() throws FileNotFoundException{
+    public void initialize() {
         spritz = new Spritz();
-        //textView1.setText("");
+        spritzDisplay.setText("");
+        
+        //TESTING
+        is = getResources().openRawResource(R.raw.testfile);
+    }
+    
+    /**
+     * The next button
+     */
+    public void nextClicked() {
+    	spritzDisplay.setText(spritz.next());
+    }
+    
+    /**
+     * The previous button
+     */
+    public void previousClicked(){
+    	spritzDisplay.setText(spritz.previous());
+    }
+    
+    /**
+     * The play button
+     */
+    public void playClicked() {
+    	next.setEnabled(false);
+    	previous.setEnabled(false);
+    }
+    
+    /**
+     * The pause button
+     */
+    public void pauseClicked() {
+    	next.setEnabled(true);
+    	previous.setEnabled(true);
     }
 }
