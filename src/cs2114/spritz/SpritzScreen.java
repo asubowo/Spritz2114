@@ -59,7 +59,7 @@ public class SpritzScreen extends Screen {
 	 * The play button
 	 */
 	public void playClicked() {
-		timer = Timer.callRepeatedly(this, "nextClicked", 200);
+		timer = Timer.callRepeatedly(this, "nextClicked", delay);
 		play.setEnabled(false);
 		next.setEnabled(false);
 		previous.setEnabled(false);
