@@ -1,12 +1,12 @@
 package cs2114.spritz;
 
+import android.widget.RadioButton;
 import java.io.InputStream;
 
 
 import com.spritz2114.R;
 
 import sofia.app.Screen;
-import android.widget.Button;
 import android.widget.TextView;
 import sofia.util.Timer;
 
@@ -23,8 +23,7 @@ public class SpritzScreen extends Screen {
 
     private Spritz spritz;
     private TextView spritzDisplay;
-    private Button next;
-    private Button previous;
+    private long delay = 200;
     private InputStream is;
     private Timer timer;
 
@@ -56,7 +55,7 @@ public class SpritzScreen extends Screen {
      * The play button
      */
     public void playClicked() {
-        timer = Timer.callRepeatedly(this, "nextClicked", 200);
+        timer = Timer.callRepeatedly(this, "nextClicked", delay);
     }
 
     /**
@@ -66,5 +65,55 @@ public class SpritzScreen extends Screen {
         if (timer.isRunning()) {
             timer.stop();
         }
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * Changes speed to 200 wpm
+     */
+    public void radio200Clicked() {
+        delay = 300;
+        this.pauseClicked();
+        this.playClicked();
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * Changes speed to 300 wpm
+     */
+    public void radio300Clicked() {
+        delay = 200;
+        this.pauseClicked();
+        this.playClicked();
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * Changes speed to 400 wpm
+     */
+    public void radio400Clicked() {
+        delay = 150;
+        this.pauseClicked();
+        this.playClicked();
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * Changes speed to 500 wpm
+     */
+    public void radio500Clicked() {
+        delay = 120;
+        this.pauseClicked();
+        this.playClicked();
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * Changes speed to 600 wpm
+     */
+    public void radio600Clicked() {
+        delay = 100;
+        this.pauseClicked();
+        this.playClicked();
     }
 }
