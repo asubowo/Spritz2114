@@ -25,6 +25,8 @@ public class SpritzScreen extends Screen {
 	private TextView spritzDisplay;
 	private Button next;
 	private Button previous;
+	private Button play;
+	private Button pause;
 	private InputStream is;
 	private Timer timer;
 	private long delay;
@@ -58,6 +60,10 @@ public class SpritzScreen extends Screen {
 	 */
 	public void playClicked() {
 		timer = Timer.callRepeatedly(this, "nextClicked", 200);
+		play.setEnabled(false);
+		next.setEnabled(false);
+		previous.setEnabled(false);
+		
 	}
 
 	/**
@@ -67,6 +73,11 @@ public class SpritzScreen extends Screen {
 		if (timer.isRunning()) {
 			timer.stop();
 		}
+		
+		play.setEnabled(true);
+		pause.setEnabled(false);
+		next.setEnabled(true);
+		previous.setEnabled(true);
 	}
 
     // ----------------------------------------------------------
