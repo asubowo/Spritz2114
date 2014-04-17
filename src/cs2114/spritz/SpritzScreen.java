@@ -63,6 +63,7 @@ public class SpritzScreen extends Screen {
 		play.setEnabled(false);
 		next.setEnabled(false);
 		previous.setEnabled(false);
+		pause.setEnabled(true);
 		
 	}
 
