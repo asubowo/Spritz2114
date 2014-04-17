@@ -56,13 +56,15 @@ public class SpritzScreen extends Screen {
      * The play button
      */
     public void playClicked() {
-        Timer.callRepeatedly(this, "nextClicked", 200);
+        timer = Timer.callRepeatedly(this, "nextClicked", 200);
     }
 
     /**
      * The pause button
      */
     public void pauseClicked() {
-        timer.stop();
+        if (timer.isRunning()) {
+            timer.stop();
+        }
     }
 }
