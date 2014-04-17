@@ -1,5 +1,6 @@
 package cs2114.spritz;
 
+import android.widget.Button;
 import android.widget.RadioButton;
 import java.io.InputStream;
 import com.spritz2114.R;
@@ -19,21 +20,15 @@ import sofia.util.Timer;
  */
 public class SpritzScreen extends Screen {
 
-<<<<<<< HEAD
+
 	private Spritz spritz;
 	private TextView spritzDisplay;
 	private Button next;
 	private Button previous;
 	private InputStream is;
 	private Timer timer;
-=======
-    private Spritz spritz;
-    private TextView spritzDisplay;
-    private long delay = 200;
-    private InputStream is;
-    private Timer timer;
->>>>>>> 15b838dca910685c6d0499e7b315ee54a5b1d348
-
+	private long delay;
+	
 	/**
 	 * Creates a new blank screen
 	 */
@@ -58,7 +53,6 @@ public class SpritzScreen extends Screen {
 		spritzDisplay.setText(spritz.previous());
 	}
 
-<<<<<<< HEAD
 	/**
 	 * The play button
 	 */
@@ -74,22 +68,6 @@ public class SpritzScreen extends Screen {
 			timer.stop();
 		}
 	}
-=======
-    /**
-     * The play button
-     */
-    public void playClicked() {
-        timer = Timer.callRepeatedly(this, "nextClicked", delay);
-    }
-
-    /**
-     * The pause button
-     */
-    public void pauseClicked() {
-        if (timer.isRunning()) {
-            timer.stop();
-        }
-    }
 
     // ----------------------------------------------------------
     /**
@@ -140,5 +118,4 @@ public class SpritzScreen extends Screen {
         this.pauseClicked();
         this.playClicked();
     }
->>>>>>> 15b838dca910685c6d0499e7b315ee54a5b1d348
 }

@@ -19,7 +19,14 @@ public final class R {
         public static final int pause=0x7f070003;
         public static final int play=0x7f070002;
         public static final int previous=0x7f070001;
+        public static final int radio200=0x7f070007;
+        public static final int radio300=0x7f070008;
+        public static final int radio400=0x7f070009;
+        public static final int radio500=0x7f07000a;
+        public static final int radio600=0x7f07000b;
+        public static final int speedGroup=0x7f070006;
         public static final int spritzDisplay=0x7f070005;
+        public static final int textView1=0x7f07000c;
     }
     public static final class layout {
         public static final int spritzscreen=0x7f030000;
