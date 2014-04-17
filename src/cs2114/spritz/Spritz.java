@@ -3,8 +3,10 @@ package cs2114.spritz;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 import java.net.URL;
 
@@ -25,48 +27,45 @@ import android.content.res.AssetManager;
  */
 public class Spritz extends Screen {
 
-	private File testFile;
-	private URL urlTarget;
 	private Scanner input;
 	private String token;
 	private CircularLinkedList<String> dataArray;
-	
+
 	/**
 	 * Constructor for this class
 	 * The default class displays the embedded text file, Lorem Ipsum
 	 */
 	public Spritz() {
-
-		//TODO
-		/*
-		 * THIS IS WHAT WE NEED TO DO:
-		 * Figure out a way to parse in text files. We can sideload .txt files and read
-		 * them.
-		 * See this: http://stackoverflow.com/questions/12421814/how-to-read-text-file-in-android
-		 * 
-		 * OR - we can change our test case up a bit and read a text file found on the
-		 * internet instead. Maybe wikipedia for example.
-		 */
-		
-		//The code below DOES NOT WORK for android
-		urlTarget = getClass().getResource("testFile.txt");
-		testFile = new File(urlTarget.getPath());
-		
-		
-		try {
-			input = new Scanner(testFile);
-		} catch (FileNotFoundException e) {
-			System.out.println("The test file was not found.");
-		}
-		
 		dataArray = new CircularLinkedList<String>();
-		parseInput();
 	}
 
 	/**
 	 * Overloaded constructor - able to take in arguments
+	 * @param is InputStream - This allows this application to parse .txt files
 	 */
-	//public Spritz(website URL, etc.)
+	public Spritz(InputStream is){
+
+		dataArray = new CircularLinkedList<String>();
+
+		try {
+			BufferedReader re = new BufferedReader(new InputStreamReader(is, "UTF8"));
+			parseTxt(re);
+		} catch (IOException e) {
+			System.out.println("File not found or not supported.");
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Parses .txt files
+	 */
+	public void parseTxt(BufferedReader re) {
+		input = new Scanner(re);
+		while (input.hasNext()){
+			token = input.next();
+			dataArray.add(token);
+		}
+	}
 
 	/**
 	 * Parses the input and stores it into the node array
@@ -100,7 +99,7 @@ public class Spritz extends Screen {
 	 * @return The string next in the data array.
 	 */
 	public String next() {
-		dataArray.next();
+		dataArray.previous();
 		return dataArray.getCurrent();
 	}
 
@@ -109,7 +108,7 @@ public class Spritz extends Screen {
 	 * @return the string previous in the data array
 	 */
 	public String previous() {
-		dataArray.previous();
+		dataArray.next();
 		return dataArray.getCurrent();
 	}
 

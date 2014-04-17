@@ -1,11 +1,7 @@
 package cs2114.spritz;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
+
 
 import com.spritz2114.R;
 
@@ -35,13 +31,9 @@ public class SpritzScreen extends Screen {
      */
     public void initialize() {
     	
-        spritz = new Spritz();
         spritzDisplay.setText("");
-        
-        //TESTING - DOESN'T WORK.
-        //is = getResources().openRawResource(R.raw.testfile);
-        //InputStreamReader inputStreamReader = new InputStreamReader(is);
-        //BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        is = getResources().openRawResource(R.raw.testfile);   
+        spritz = new Spritz(is);
     }
     
     /**
@@ -62,6 +54,7 @@ public class SpritzScreen extends Screen {
      * The play button
      */
     public void playClicked() {
+    	spritzDisplay.setText(spritz.getCurrentWord());
     	next.setEnabled(false);
     	previous.setEnabled(false);
     }
