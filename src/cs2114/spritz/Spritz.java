@@ -1,20 +1,13 @@
 package cs2114.spritz;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
-import java.net.URL;
 
-import com.spritz2114.R;
 
-import sofia.app.Screen;
 
-import android.content.res.AssetManager;
 
 /**
  * This is the logic base for the Spritz application.
@@ -25,7 +18,7 @@ import android.content.res.AssetManager;
  * @version 4.13.2014
  *
  */
-public class Spritz extends Screen {
+public class Spritz {
 
 	private Scanner input;
 	private String token;
