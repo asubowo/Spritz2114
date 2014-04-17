@@ -14,11 +14,12 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int layout=0x7f070000;
         public static final int next=0x7f070004;
         public static final int pause=0x7f070003;
         public static final int play=0x7f070002;
         public static final int previous=0x7f070001;
-        public static final int spritzDisplay=0x7f070000;
+        public static final int spritzDisplay=0x7f070005;
     }
     public static final class layout {
         public static final int spritzscreen=0x7f030000;
