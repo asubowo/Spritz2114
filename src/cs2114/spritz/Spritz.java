@@ -14,7 +14,7 @@ import java.util.Scanner;
  * 
  * @author Andrew Subowo (asubowo)
  * @author Cory Howard (arch518)
- * @author 
+ * @author Meghan Hamannwright (meghankh)
  * @version 4.13.2014
  *
  */

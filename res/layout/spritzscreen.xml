@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="horizontal"
+    android:background="#72B2F9"
     tools:context="cs2114.spritz.SpritzScreen" >
 
     <LinearLayout
@@ -42,10 +43,12 @@
 
     <TextView
         android:id="@+id/spritzDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_above="@+id/layout"
         android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:gravity="center"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
