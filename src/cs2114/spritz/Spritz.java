@@ -51,6 +51,7 @@ public class Spritz {
 
 	/**
 	 * Parses .txt files
+	 * @param re Buffered reader
 	 */
 	public void parseTxt(BufferedReader re) {
 		input = new Scanner(re);
