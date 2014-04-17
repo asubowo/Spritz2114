@@ -72,7 +72,7 @@ public class SpritzScreen extends Screen {
 	 * The pause button
 	 */
 	public void pauseClicked() {
-		if (timer.isRunning()) {
+		if (timer != null) {
 			timer.stop();
 		}
 		
