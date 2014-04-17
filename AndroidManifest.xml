@@ -17,6 +17,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboardHidden"
             android:name="cs2114.spritz.SpritzScreen"
             android:label="@string/app_name" >
             <intent-filter>
