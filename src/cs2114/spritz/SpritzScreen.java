@@ -39,6 +39,7 @@ public class SpritzScreen extends Screen {
 		spritzDisplay.setText("");
 		is = getResources().openRawResource(R.raw.testfile);
 		spritz = new Spritz(is);
+		delay = 200;
 	}
 
 	/**
