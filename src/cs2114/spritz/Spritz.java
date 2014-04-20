@@ -6,12 +6,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-
-
-
 /**
  * This is the logic base for the Spritz application.
- * 
+ *
  * @author Andrew Subowo (asubowo)
  * @author Cory Howard (arch518)
  * @author Meghan Hamannwright (meghankh)
@@ -22,7 +19,7 @@ public class Spritz {
 
 	private Scanner input;
 	private String token;
-	private CircularLinkedList<String> dataArray;
+    private CircularLinkedList<String> dataArray;
 
 	/**
 	 * Constructor for this class
@@ -106,6 +103,20 @@ public class Spritz {
 		return dataArray.getCurrent();
 	}
 
+	// ----------------------------------------------------------
+	/**
+	 * Resets the linked list to its original state
+	 */
+	public void reset() {
+	    dataArray.reset();
+	}
 
-
+	// ----------------------------------------------------------
+	/**
+	 * Checks if the linked list has reached the end
+	 * @return If linked list has returned to its original state
+	 */
+	public boolean end() {
+	    return dataArray.end();
+	}
 }

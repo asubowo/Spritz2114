@@ -1,7 +1,6 @@
 package cs2114.spritz;
 
 import android.widget.Button;
-import android.widget.RadioButton;
 import java.io.InputStream;
 import com.spritz2114.R;
 
@@ -28,9 +27,9 @@ public class SpritzScreen extends Screen {
 	private Button play;
 	private Button pause;
 	private InputStream is;
-	private Timer timer;
-	private long delay;
-	
+	private int delay;
+	private boolean playing;
+
 	/**
 	 * Creates a new blank screen
 	 */
@@ -39,14 +38,23 @@ public class SpritzScreen extends Screen {
 		spritzDisplay.setText("");
 		is = getResources().openRawResource(R.raw.testfile);
 		spritz = new Spritz(is);
-		delay = 200;
+        pause.setEnabled(false);
+        delay = 200;
+        playing = false;
 	}
 
 	/**
 	 * The next button
 	 */
 	public void nextClicked() {
-		spritzDisplay.setText(spritz.next());
+        spritzDisplay.setText(spritz.next());
+	    if (spritz.end()) {
+            this.pauseClicked();
+        }
+        else if (playing)
+        {
+            Timer.callOnce(this, "nextClicked", delay);
+        }
 	}
 
 	/**
@@ -60,22 +68,20 @@ public class SpritzScreen extends Screen {
 	 * The play button
 	 */
 	public void playClicked() {
-		timer = Timer.callRepeatedly(this, "nextClicked", delay);
+		playing = true;
 		play.setEnabled(false);
 		next.setEnabled(false);
 		previous.setEnabled(false);
 		pause.setEnabled(true);
-		
+		Timer.callOnce(this, "nextClicked", delay);
+
 	}
 
 	/**
 	 * The pause button
 	 */
 	public void pauseClicked() {
-		if (timer != null) {
-			timer.stop();
-		}
-		
+	    playing = false;
 		play.setEnabled(true);
 		pause.setEnabled(false);
 		next.setEnabled(true);
@@ -88,8 +94,6 @@ public class SpritzScreen extends Screen {
      */
     public void radio200Clicked() {
         delay = 300;
-        this.pauseClicked();
-        this.playClicked();
     }
 
     // ----------------------------------------------------------
@@ -98,8 +102,6 @@ public class SpritzScreen extends Screen {
      */
     public void radio300Clicked() {
         delay = 200;
-        this.pauseClicked();
-        this.playClicked();
     }
 
     // ----------------------------------------------------------
@@ -108,8 +110,6 @@ public class SpritzScreen extends Screen {
      */
     public void radio400Clicked() {
         delay = 150;
-        this.pauseClicked();
-        this.playClicked();
     }
 
     // ----------------------------------------------------------
@@ -118,8 +118,6 @@ public class SpritzScreen extends Screen {
      */
     public void radio500Clicked() {
         delay = 120;
-        this.pauseClicked();
-        this.playClicked();
     }
 
     // ----------------------------------------------------------
@@ -128,7 +126,15 @@ public class SpritzScreen extends Screen {
      */
     public void radio600Clicked() {
         delay = 100;
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * Resets the spritz text back to the beginning
+     */
+    public void resetClicked() {
         this.pauseClicked();
-        this.playClicked();
+        spritz.reset();
+        spritzDisplay.setText("");
     }
 }

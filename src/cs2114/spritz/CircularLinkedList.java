@@ -17,6 +17,7 @@ public class CircularLinkedList<E>
     //~ Fields ................................................................
 
     private Node<E> current;
+    private Node<E> lastNode;
 
     private int size;
 
@@ -109,6 +110,7 @@ public class CircularLinkedList<E>
             temp.join(newNode);
             newNode.join(current);
             current = newNode;
+            lastNode = newNode;
             size++;
         }
     }
@@ -153,7 +155,7 @@ public class CircularLinkedList<E>
      */
     public String toString()
     {
-    
+
         String temp = "";
         previous();
         if (size != 0) {
@@ -249,5 +251,22 @@ public class CircularLinkedList<E>
             throw new UnsupportedOperationException(
                 "remove() is not supported.");
         }
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * Resets list back to beginning
+     */
+    public void reset() {
+        current = lastNode;
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * Checks if the linked list has reached the end
+     * @return If linked list has returned to its original state
+     */
+    public boolean end() {
+        return current.equals(lastNode);
     }
 }
