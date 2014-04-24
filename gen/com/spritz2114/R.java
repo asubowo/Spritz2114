@@ -24,6 +24,7 @@ public final class R {
         public static final int radio400=0x7f070009;
         public static final int radio500=0x7f07000a;
         public static final int radio600=0x7f07000b;
+        public static final int reset=0x7f07000d;
         public static final int speedGroup=0x7f070006;
         public static final int spritzDisplay=0x7f070005;
         public static final int textView1=0x7f07000c;
