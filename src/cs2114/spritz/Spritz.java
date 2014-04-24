@@ -58,19 +58,6 @@ public class Spritz {
 		}
 	}
 	
-	/**
-	 * Parses string copied from web
-	 * @param copiedText string from editText
-	 */
-	public void parseStringTxt(String copiedText) //Potential redundancy?
-	{
-		input = new Scanner(copiedText);
-		while (input.hasNext())
-		{
-			token = input.next();
-			dataArray.add(token);
-		}
-	}
 
 	/**
 	 * Parses the input and stores it into the node array

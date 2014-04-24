@@ -3,7 +3,12 @@ package cs2114.spritz;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+
 import com.spritz2114.R;
 
 import sofia.app.Screen;
@@ -145,12 +150,14 @@ public class SpritzScreen extends Screen {
     
     /**
      * Check that text has been inputed
+     * @throws UnsupportedEncodingException 
      */
-    public void inputTextEditingDone()
+    public void inputTextEditingDone() throws UnsupportedEncodingException
     {
+    	InputStream stream = new ByteArrayInputStream(inputText.getText().toString().getBytes("UTF-8"));
+    	BufferedReader re = new BufferedReader(new InputStreamReader(stream, "UTF8"));
     	spritz.clear();
-    	spritz.parseStringTxt(inputText.getText().toString()); //Redundant method
-    	//Lets look for a way to consolidate the parseText and parseStringText
+    	spritz.parseTxt(re); 
     	
     }
 }
