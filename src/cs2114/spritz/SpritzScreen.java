@@ -17,6 +17,7 @@ import sofia.util.Timer;
  * @author Cory Howard (arch518)
  * @author Meghan Hamannwright (meghankh)
  * @version 4.13.2014
+ * 
  *
  */
 public class SpritzScreen extends Screen {
@@ -40,7 +41,7 @@ public class SpritzScreen extends Screen {
 
 		spritzDisplay.setText("");
 		is = getResources().openRawResource(R.raw.testfile);
-		spritz = new Spritz(is);				
+		spritz = new Spritz(is); //Default setting			
         pause.setEnabled(false);
         delay = 200;
         playing = false;
@@ -139,6 +140,7 @@ public class SpritzScreen extends Screen {
         this.pauseClicked();
         spritz.reset();
         spritzDisplay.setText("");
+        inputText.setText("");
     }
     
     /**
@@ -147,7 +149,8 @@ public class SpritzScreen extends Screen {
     public void inputTextEditingDone()
     {
     	spritz.clear();
-    	spritz.parseStringTxt(inputText.getText().toString());
+    	spritz.parseStringTxt(inputText.getText().toString()); //Redundant method
+    	//Lets look for a way to consolidate the parseText and parseStringText
     	
     }
 }

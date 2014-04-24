@@ -33,7 +33,7 @@ public class Spritz {
 	 * Overloaded constructor - able to take in arguments
 	 * @param is InputStream - This allows this application to parse .txt files
 	 */
-	public Spritz(InputStream is){
+	public Spritz(InputStream is){ //Potential redundancy?
 
 		dataArray = new CircularLinkedList<String>();
 
@@ -50,7 +50,7 @@ public class Spritz {
 	 * Parses .txt files
 	 * @param re Buffered reader
 	 */
-	public void parseTxt(BufferedReader re) {
+	public void parseTxt(BufferedReader re) { //Merge with parseStringText somehow?
 		input = new Scanner(re);
 		while (input.hasNext()){
 			token = input.next();
@@ -62,7 +62,7 @@ public class Spritz {
 	 * Parses string copied from web
 	 * @param copiedText string from editText
 	 */
-	public void parseStringTxt(String copiedText)
+	public void parseStringTxt(String copiedText) //Potential redundancy?
 	{
 		input = new Scanner(copiedText);
 		while (input.hasNext())
