@@ -57,6 +57,20 @@ public class Spritz {
 			dataArray.add(token);
 		}
 	}
+	
+	/**
+	 * Parses string copied from web
+	 * @param copiedText string from editText
+	 */
+	public void parseStringTxt(String copiedText)
+	{
+		input = new Scanner(copiedText);
+		while (input.hasNext())
+		{
+			token = input.next();
+			dataArray.add(token);
+		}
+	}
 
 	/**
 	 * Parses the input and stores it into the node array
@@ -118,5 +132,10 @@ public class Spritz {
 	 */
 	public boolean end() {
 	    return dataArray.end();
+	}
+	
+	public void clear()
+	{
+		dataArray.clear();
 	}
 }

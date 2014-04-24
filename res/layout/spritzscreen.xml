@@ -110,4 +110,27 @@
         android:layout_centerHorizontal="true"
         android:text="Reset" />
 
+    <EditText
+        android:id="@+id/inputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/speedGroup"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/inputTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputText"
+        android:layout_alignBottom="@+id/inputText"
+        android:layout_marginRight="21dp"
+        android:layout_toLeftOf="@+id/inputText"
+        android:text="Input Text:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
 </RelativeLayout>

@@ -14,6 +14,8 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int inputText=0x7f07000e;
+        public static final int inputTitle=0x7f07000f;
         public static final int layout=0x7f070000;
         public static final int next=0x7f070004;
         public static final int pause=0x7f070003;

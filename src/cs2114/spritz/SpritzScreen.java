@@ -1,6 +1,8 @@
 package cs2114.spritz;
 
 import android.widget.Button;
+import android.widget.EditText;
+
 import java.io.InputStream;
 import com.spritz2114.R;
 
@@ -29,6 +31,7 @@ public class SpritzScreen extends Screen {
 	private InputStream is;
 	private int delay;
 	private boolean playing;
+	private EditText inputText;
 
 	/**
 	 * Creates a new blank screen
@@ -37,7 +40,7 @@ public class SpritzScreen extends Screen {
 
 		spritzDisplay.setText("");
 		is = getResources().openRawResource(R.raw.testfile);
-		spritz = new Spritz(is);
+		spritz = new Spritz(is);				
         pause.setEnabled(false);
         delay = 200;
         playing = false;
@@ -136,5 +139,15 @@ public class SpritzScreen extends Screen {
         this.pauseClicked();
         spritz.reset();
         spritzDisplay.setText("");
+    }
+    
+    /**
+     * Check that text has been inputed
+     */
+    public void inputTextEditingDone()
+    {
+    	spritz.clear();
+    	spritz.parseStringTxt(inputText.getText().toString());
+    	
     }
 }
