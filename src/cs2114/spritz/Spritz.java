@@ -33,7 +33,7 @@ public class Spritz {
 	 * Overloaded constructor - able to take in arguments
 	 * @param is InputStream - This allows this application to parse .txt files
 	 */
-	public Spritz(InputStream is){ //Potential redundancy?
+	public Spritz(InputStream is) { 
 
 		dataArray = new CircularLinkedList<String>();
 
@@ -121,6 +121,9 @@ public class Spritz {
 	    return dataArray.end();
 	}
 	
+	/**
+	 * Clears the dataArray
+	 */
 	public void clear()
 	{
 		dataArray.clear();
