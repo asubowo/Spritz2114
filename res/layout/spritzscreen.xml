@@ -117,7 +117,10 @@
         android:layout_below="@+id/speedGroup"
         android:layout_centerHorizontal="true"
         android:background="#FFFFFF"
-        android:ems="10" >
+        android:ems="10"
+        android:hint="                   Paste text"
+        android:textStyle="italic"
+        android:maxLines="1" >
 
         <requestFocus />
     </EditText>

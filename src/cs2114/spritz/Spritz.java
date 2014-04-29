@@ -50,7 +50,7 @@ public class Spritz {
 	 * Parses .txt files
 	 * @param re Buffered reader
 	 */
-	public void parseTxt(BufferedReader re) { //Merge with parseStringText somehow?
+	public void parseTxt(BufferedReader re) {
 		input = new Scanner(re);
 		while (input.hasNext()){
 			token = input.next();
