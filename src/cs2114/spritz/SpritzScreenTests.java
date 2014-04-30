@@ -11,7 +11,6 @@ import java.io.IOException;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import student.TestCase;
 
 /**
  * This is the test class for the Spritz application logic base.
@@ -25,9 +24,6 @@ import student.TestCase;
 
 public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 
-	private SpritzScreen app;
-	private Spritz sp;
-	private Spritz spritz;
 	private TextView spritzDisplay;
 	private Button next;
 	private Button previous;
