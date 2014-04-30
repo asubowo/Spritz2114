@@ -1,3 +1,11 @@
+Welcome to the Spritz2114 app!
+
+This app was coded by Andrew Subowo, Meghan Hamannwright, and Cory Howard.
+
+To show you what we can do, here's a great example of using our application
+
+to read at a decent pace! The following is "Oh, the Places You'll Go!" by Dr. Seuss.
+
 Oh, the Places You'll Go!
 
 by
