@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Welcome to the Spritz2114 app!
 
 This app was coded by Andrew Subowo, Meghan Hamannwright, and Cory Howard.
@@ -200,3 +201,25 @@ You're off the Great Places!
 Today is your day!
 Your mountain is waiting.
 So...get on your way!
+=======
+Welcome to the Quick Reader.
+
+This android mobile application is useful for reading text in a quick
+and effective manner. After using this application a user will be able
+to read any text quickly and with better comprehension than ever
+before.
+
+In order to get started simply navigate to your favorite web-site and
+copy some text. Then return to the application and paste the text in
+the text box below labeled "Paste Text". Once pasted select the
+appropriate words per a minute (WPM) from the choices. Then press play
+to see your text displayed by the application at the selected speed.
+
+If at any point you get lost in the text simply press "Pause" and then
+navigate to the appropriate place in the text using "Next" and
+"Previous". If you'd like to choose a new block of text simply press
+"Reset" and then copy and paste some new text into the box to start
+again.
+
+Enjoy!
+>>>>>>> e06214470fba302199820de47e8dbe059e065277
