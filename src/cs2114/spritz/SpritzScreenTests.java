@@ -86,5 +86,8 @@ public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 	 */
 	public void testEmptyInput() {
 		enterText(inputText, "");
+		assertFalse(play.isEnabled());
+		assertFalse(previous.isEnabled());
+		assertFalse(next.isEnabled());
 	}
 }

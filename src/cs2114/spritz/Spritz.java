@@ -122,7 +122,7 @@ public class Spritz {
 	}
 	
 	/**
-	 * Clears the dataArray
+	 * Clears the list
 	 */
 	public void clear()
 	{

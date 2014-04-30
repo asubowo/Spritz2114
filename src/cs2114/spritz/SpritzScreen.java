@@ -165,6 +165,7 @@ public class SpritzScreen extends Screen {
 		else {
 			InputStream stream = new ByteArrayInputStream(inputText.getText().toString().getBytes("UTF-8"));
 			BufferedReader re = new BufferedReader(new InputStreamReader(stream, "UTF8"));
+			
 			spritz.clear();
 			spritz.parseTxt(re); 
 			play.setEnabled(true);
