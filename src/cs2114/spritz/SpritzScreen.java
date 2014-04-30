@@ -27,7 +27,6 @@ import sofia.util.Timer;
  */
 public class SpritzScreen extends Screen {
 
-
 	private Spritz spritz;
 	private TextView spritzDisplay;
 	private Button next;
@@ -48,6 +47,8 @@ public class SpritzScreen extends Screen {
 		is = getResources().openRawResource(R.raw.testfile);
 		spritz = new Spritz(is); //Default setting			
         pause.setEnabled(false);
+        previous.setEnabled(false);
+        next.setEnabled(false);
         delay = 200;
         playing = false;
 	}
@@ -139,7 +140,7 @@ public class SpritzScreen extends Screen {
 
     // ----------------------------------------------------------
     /**
-     * Resets the spritz text back to the beginning
+     * Resets the Spritz system
      */
     public void resetClicked() {
         this.pauseClicked();

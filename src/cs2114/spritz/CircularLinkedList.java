@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 //-------------------------------------------------------------------------
 /**
- * A circular, doubly-linked list.
+ * A circular, doubly-linked list, with an indicator at the end
  *
  * @param <E> the type of element stored in the list
  *
