@@ -1,7 +1,5 @@
 package cs2114.spritz;
 
-import sofia.app.Screen;
-import sofia.widget.ImageView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -29,7 +27,6 @@ public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 	private Button previous;
 	private Button play;
 	private Button pause;
-	private InputStream is;
 	private int delay;
 	private boolean playing;
 	private EditText inputText;
@@ -55,12 +52,33 @@ public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 	 * Tests the initialization
 	 */
 	public void testInitial() {
+		
 		assertFalse(previous.isEnabled());
 		assertEquals("", spritzDisplay.getText());
 		assertFalse(next.isEnabled());
 		assertTrue(play.isEnabled());
 		assertFalse(playing);
-		assertEquals(200, delay);
+	}
+	
+	/**
+	 * Tests default presentation
+	 */
+	public void testInitialWithPresentation() {
+		click(play);
+		click(pause);
+		
+		assertEquals("This", spritzDisplay.getText());
+		
+		click(previous); 
+		assertEquals("Reader.", spritzDisplay.getText());
+		
+		click(previous);
+		click(previous);
+		click(previous);
+		click(previous);
+		click(previous); //This should make the program wrap to the end.
+		assertEquals("Enjoy!", spritzDisplay.getText());
+		
 	}
 	
 	/**
@@ -73,12 +91,12 @@ public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 		assertTrue(play.isEnabled());
 		assertTrue(next.isEnabled());
 		assertTrue(previous.isEnabled());
-		assertEquals("Hello", spritzDisplay.getText());
+		assertEquals("Spritz2114!", spritzDisplay.getText());
 		
 		click(next);
-		assertEquals("world,", spritzDisplay.getText());
-		click(previous);
 		assertEquals("Hello", spritzDisplay.getText());
+		click(previous);
+		assertEquals("Spritz2114!", spritzDisplay.getText());
 	}
 	
 	/**

@@ -1,5 +1,5 @@
 /** Automatically generated file. DO NOT MODIFY */
-package com.spritz2114;
+package cs2114.spritz;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;

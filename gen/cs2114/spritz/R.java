@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.spritz2114;
+package cs2114.spritz;
 
 public final class R {
     public static final class attr {

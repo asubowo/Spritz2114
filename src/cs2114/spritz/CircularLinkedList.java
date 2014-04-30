@@ -1,6 +1,5 @@
 package cs2114.spritz;
 
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 //-------------------------------------------------------------------------

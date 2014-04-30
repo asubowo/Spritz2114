@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
-import com.spritz2114.R;
+//import com.spritz2114.R;
 
 import sofia.app.Screen;
 import android.widget.TextView;
@@ -158,7 +158,7 @@ public class SpritzScreen extends Screen {
 	public void inputTextEditingDone() throws UnsupportedEncodingException
 	{
 
-		if (inputText.getText().toString() == ""){
+		if (inputText.getText().toString().equals("")){
 			play.setEnabled(false);
 		}
 
