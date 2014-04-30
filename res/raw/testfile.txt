@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 Welcome to the Spritz2114 app!
 
 This app was coded by Andrew Subowo, Meghan Hamannwright, and Cory Howard.
