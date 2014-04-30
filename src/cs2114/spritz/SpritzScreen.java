@@ -46,25 +46,25 @@ public class SpritzScreen extends Screen {
 		spritzDisplay.setText("");
 		is = getResources().openRawResource(R.raw.testfile);
 		spritz = new Spritz(is); //Default setting			
-        pause.setEnabled(false);
-        previous.setEnabled(false);
-        next.setEnabled(false);
-        delay = 200;
-        playing = false;
+		pause.setEnabled(false);
+		previous.setEnabled(false);
+		next.setEnabled(false);
+		delay = 200;
+		playing = false;
 	}
 
 	/**
 	 * The next button
 	 */
 	public void nextClicked() {
-        spritzDisplay.setText(spritz.next());
-	    if (spritz.end()) {
-            this.pauseClicked();
-        }
-        else if (playing)
-        {
-            Timer.callOnce(this, "nextClicked", delay);
-        }
+		spritzDisplay.setText(spritz.next());
+		if (spritz.end()) {
+			this.pauseClicked();
+		}
+		else if (playing)
+		{
+			Timer.callOnce(this, "nextClicked", delay);
+		}
 	}
 
 	/**
@@ -91,74 +91,83 @@ public class SpritzScreen extends Screen {
 	 * The pause button
 	 */
 	public void pauseClicked() {
-	    playing = false;
+		playing = false;
 		play.setEnabled(true);
 		pause.setEnabled(false);
 		next.setEnabled(true);
 		previous.setEnabled(true);
 	}
 
-    // ----------------------------------------------------------
-    /**
-     * Changes speed to 200 wpm
-     */
-    public void radio200Clicked() {
-        delay = 300;
-    }
+	// ----------------------------------------------------------
+	/**
+	 * Changes speed to 200 wpm
+	 */
+	public void radio200Clicked() {
+		delay = 300;
+	}
 
-    // ----------------------------------------------------------
-    /**
-     * Changes speed to 300 wpm
-     */
-    public void radio300Clicked() {
-        delay = 200;
-    }
+	// ----------------------------------------------------------
+	/**
+	 * Changes speed to 300 wpm
+	 */
+	public void radio300Clicked() {
+		delay = 200;
+	}
 
-    // ----------------------------------------------------------
-    /**
-     * Changes speed to 400 wpm
-     */
-    public void radio400Clicked() {
-        delay = 150;
-    }
+	// ----------------------------------------------------------
+	/**
+	 * Changes speed to 400 wpm
+	 */
+	public void radio400Clicked() {
+		delay = 150;
+	}
 
-    // ----------------------------------------------------------
-    /**
-     * Changes speed to 500 wpm
-     */
-    public void radio500Clicked() {
-        delay = 120;
-    }
+	// ----------------------------------------------------------
+	/**
+	 * Changes speed to 500 wpm
+	 */
+	public void radio500Clicked() {
+		delay = 120;
+	}
 
-    // ----------------------------------------------------------
-    /**
-     * Changes speed to 600 wpm
-     */
-    public void radio600Clicked() {
-        delay = 100;
-    }
+	// ----------------------------------------------------------
+	/**
+	 * Changes speed to 600 wpm
+	 */
+	public void radio600Clicked() {
+		delay = 100;
+	}
 
-    // ----------------------------------------------------------
-    /**
-     * Resets the Spritz system
-     */
-    public void resetClicked() {
-        this.pauseClicked();
-        spritz.reset();
-        spritzDisplay.setText("");
-        inputText.setText("");
-    }
-    
-    /**
-     * Check that text has been inputed
-     * @throws UnsupportedEncodingException 
-     */
-    public void inputTextEditingDone() throws UnsupportedEncodingException
-    {
-    	InputStream stream = new ByteArrayInputStream(inputText.getText().toString().getBytes("UTF-8"));
-    	BufferedReader re = new BufferedReader(new InputStreamReader(stream, "UTF8"));
-    	spritz.clear();
-    	spritz.parseTxt(re); 
-    	
-    }
+	// ----------------------------------------------------------
+	/**
+	 * Resets the Spritz system
+	 */
+	public void resetClicked() {
+		this.pauseClicked();
+		spritz.reset();
+		spritzDisplay.setText("");
+		inputText.setText("");
+		previous.setEnabled(false);
+		next.setEnabled(false);
+	}
+
+	/**
+	 * Check that text has been inputed
+	 * @throws UnsupportedEncodingException 
+	 */
+	public void inputTextEditingDone() throws UnsupportedEncodingException
+	{
+
+		if (inputText.getText().toString() == ""){
+			play.setEnabled(false);
+		}
+
+		else {
+			InputStream stream = new ByteArrayInputStream(inputText.getText().toString().getBytes("UTF-8"));
+			BufferedReader re = new BufferedReader(new InputStreamReader(stream, "UTF8"));
+			spritz.clear();
+			spritz.parseTxt(re); 
+			play.setEnabled(true);
+		}
+	}
 }
