@@ -101,9 +101,9 @@ public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 		assertEquals("l", middleDisplay.getText().toString());
 		assertEquals("lo", tailDisplay.getText().toString());
 		click(previous);
-		assertEquals("Sprit", headDisplay.getText().toString());
-		assertEquals("z", middleDisplay.getText().toString());
-		assertEquals("2114!", tailDisplay.getText().toString());
+		assertEquals("Spr", headDisplay.getText().toString());
+		assertEquals("i", middleDisplay.getText().toString());
+		assertEquals("tz2114!", tailDisplay.getText().toString());
 	}
 
 	/**
