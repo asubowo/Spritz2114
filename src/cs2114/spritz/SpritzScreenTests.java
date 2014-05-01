@@ -1,11 +1,5 @@
 package cs2114.spritz;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.Scanner;
-import java.io.IOException;
-
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
