@@ -1,5 +1,8 @@
 package cs2114.spritz;
 
+import android.graphics.Color;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -57,7 +60,17 @@ public class SpritzScreen extends Screen {
 	 * The next button
 	 */
 	public void nextClicked() {
-		spritzDisplay.setText(spritz.next());
+		SpannableString spanString = new SpannableString(spritz.next());
+        if (spanString.length() > 1) {
+        	int pos = (int) Math.floor(spanString.length()/2) - 1;
+        	spanString.setSpan(new ForegroundColorSpan(Color.RED), pos, pos + 1, 0);
+        }
+        else
+        {
+        	spanString.setSpan(new ForegroundColorSpan(Color.RED), 0, 1, 0);
+        }
+		spritzDisplay.setText(spanString);
+		//spritzDisplay.setText(spritz.next());
 		if (spritz.end()) {
 			this.pauseClicked();
 		}
