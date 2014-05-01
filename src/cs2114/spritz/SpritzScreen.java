@@ -45,9 +45,9 @@ public class SpritzScreen extends Screen {
      */
     public void initialize() {
 
-        headDisplay.setText("   ");
+        headDisplay.setText(" ");
         middleDisplay.setText(" ");
-        tailDisplay.setText("   ");
+        tailDisplay.setText(" ");
         is = getResources().openRawResource(R.raw.testfile);
         spritz = new Spritz(is); //Default setting
         pause.setEnabled(false);
