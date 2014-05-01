@@ -1,8 +1,5 @@
 package cs2114.spritz;
 
-import android.graphics.Color;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -25,166 +22,191 @@ import sofia.util.Timer;
  * @author Cory Howard (arch518)
  * @author Meghan Hamannwright (meghankh)
  * @version 4.13.2014
- * 
+ *
  *
  */
 public class SpritzScreen extends Screen {
 
-	private Spritz spritz;
-	private TextView spritzDisplay;
-	private Button next;
-	private Button previous;
-	private Button play;
-	private Button pause;
-	private InputStream is;
-	private int delay;
-	private boolean playing;
-	private EditText inputText;
+    private Spritz spritz;
+    private TextView headDisplay;
+    private TextView middleDisplay;
+    private TextView tailDisplay;
+    private Button next;
+    private Button previous;
+    private Button play;
+    private Button pause;
+    private InputStream is;
+    private int delay;
+    private boolean playing;
+    private EditText inputText;
 
-	/**
-	 * Creates a new blank screen
-	 */
-	public void initialize() {
+    /**
+     * Creates a new blank screen
+     */
+    public void initialize() {
 
-		spritzDisplay.setText("");
-		is = getResources().openRawResource(R.raw.testfile);
-		spritz = new Spritz(is); //Default setting			
-		pause.setEnabled(false);
-		previous.setEnabled(false);
-		next.setEnabled(false);
-		delay = 200;
-		playing = false;
-	}
+        headDisplay.setText("   ");
+        middleDisplay.setText(" ");
+        tailDisplay.setText("   ");
+        is = getResources().openRawResource(R.raw.testfile);
+        spritz = new Spritz(is); //Default setting
+        pause.setEnabled(false);
+        previous.setEnabled(false);
+        next.setEnabled(false);
+        delay = 200;
+        playing = false;
+    }
 
-	/**
-	 * The next button
-	 */
-	public void nextClicked() {
-		SpannableString spanString = new SpannableString(spritz.next());
-        if (spanString.length() > 1) {
-        	int pos = (int) Math.floor(spanString.length()/2) - 1;
-        	if (pos > 3) {
-        		pos = 3;
-        	}
-        	spanString.setSpan(new ForegroundColorSpan(Color.RED), pos, pos + 1, 0);
+    /**
+     * The next button
+     */
+    public void nextClicked() {
+        String fullString = spritz.next();
+        int pos = Math.round((fullString.length()+1)/2);
+        if (pos > 3) {
+            pos = 4;
         }
-        else
+        if (fullString.length() == 1) {
+            headDisplay.setText("");
+            middleDisplay.setText(fullString);
+            tailDisplay.setText("");
+        }
+        else if (pos == 0) {
+            headDisplay.setText("");
+        }
+        else {
+            headDisplay.setText(fullString.substring(0, pos - 1));
+            middleDisplay.setText(fullString.substring(pos - 1, pos));
+            tailDisplay.setText(fullString.substring(pos));
+        }
+        if (spritz.end()) {
+            this.pauseClicked();
+        }
+        else if (playing)
         {
-        	spanString.setSpan(new ForegroundColorSpan(Color.RED), 0, 1, 0);
+            Timer.callOnce(this, "nextClicked", delay);
         }
-		spritzDisplay.setText(spanString);
-		//spritzDisplay.setText(spritz.next());
-		if (spritz.end()) {
-			this.pauseClicked();
-		}
-		else if (playing)
-		{
-			Timer.callOnce(this, "nextClicked", delay);
-		}
-	}
+    }
 
-	/**
-	 * The previous button
-	 */
-	public void previousClicked(){
-		spritzDisplay.setText(spritz.previous());
-	}
+    /**
+     * The previous button
+     */
+    public void previousClicked(){
+        String fullString = spritz.previous();
+        int pos = Math.round((fullString.length()+1)/2);
+        if (pos > 3) {
+            pos = 4;
+        }
+        if (fullString.length() == 1) {
+            headDisplay.setText("");
+            middleDisplay.setText(fullString);
+            tailDisplay.setText("");
+        }
+        else if (pos == 0) {
+            headDisplay.setText("");
+        }
+        else {
+            headDisplay.setText(fullString.substring(0, pos - 1));
+            middleDisplay.setText(fullString.substring(pos - 1, pos));
+            tailDisplay.setText(fullString.substring(pos));
+        }
+    }
 
-	/**
-	 * The play button
-	 */
-	public void playClicked() {
-		playing = true;
-		play.setEnabled(false);
-		next.setEnabled(false);
-		previous.setEnabled(false);
-		pause.setEnabled(true);
-		Timer.callOnce(this, "nextClicked", delay);
+    /**
+     * The play button
+     */
+    public void playClicked() {
+        playing = true;
+        play.setEnabled(false);
+        next.setEnabled(false);
+        previous.setEnabled(false);
+        pause.setEnabled(true);
+        Timer.callOnce(this, "nextClicked", delay);
 
-	}
+    }
 
-	/**
-	 * The pause button
-	 */
-	public void pauseClicked() {
-		playing = false;
-		play.setEnabled(true);
-		pause.setEnabled(false);
-		next.setEnabled(true);
-		previous.setEnabled(true);
-	}
+    /**
+     * The pause button
+     */
+    public void pauseClicked() {
+        playing = false;
+        play.setEnabled(true);
+        pause.setEnabled(false);
+        next.setEnabled(true);
+        previous.setEnabled(true);
+    }
 
-	// ----------------------------------------------------------
-	/**
-	 * Changes speed to 200 wpm
-	 */
-	public void radio200Clicked() {
-		delay = 300;
-	}
+    // ----------------------------------------------------------
+    /**
+     * Changes speed to 200 wpm
+     */
+    public void radio200Clicked() {
+        delay = 300;
+    }
 
-	// ----------------------------------------------------------
-	/**
-	 * Changes speed to 300 wpm
-	 */
-	public void radio300Clicked() {
-		delay = 200;
-	}
+    // ----------------------------------------------------------
+    /**
+     * Changes speed to 300 wpm
+     */
+    public void radio300Clicked() {
+        delay = 200;
+    }
 
-	// ----------------------------------------------------------
-	/**
-	 * Changes speed to 400 wpm
-	 */
-	public void radio400Clicked() {
-		delay = 150;
-	}
+    // ----------------------------------------------------------
+    /**
+     * Changes speed to 400 wpm
+     */
+    public void radio400Clicked() {
+        delay = 150;
+    }
 
-	// ----------------------------------------------------------
-	/**
-	 * Changes speed to 500 wpm
-	 */
-	public void radio500Clicked() {
-		delay = 120;
-	}
+    // ----------------------------------------------------------
+    /**
+     * Changes speed to 500 wpm
+     */
+    public void radio500Clicked() {
+        delay = 120;
+    }
 
-	// ----------------------------------------------------------
-	/**
-	 * Changes speed to 600 wpm
-	 */
-	public void radio600Clicked() {
-		delay = 100;
-	}
+    // ----------------------------------------------------------
+    /**
+     * Changes speed to 600 wpm
+     */
+    public void radio600Clicked() {
+        delay = 100;
+    }
 
-	// ----------------------------------------------------------
-	/**
-	 * Resets the Spritz system
-	 */
-	public void resetClicked() {
-		this.pauseClicked();
-		spritz.reset();
-		spritzDisplay.setText("");
-		inputText.setText("");
-		previous.setEnabled(false);
-		next.setEnabled(false);
-	}
+    // ----------------------------------------------------------
+    /**
+     * Resets the Spritz system
+     */
+    public void resetClicked() {
+        this.pauseClicked();
+        spritz.reset();
+        middleDisplay.setText("  ");
+        inputText.setText("");
+        previous.setEnabled(false);
+        next.setEnabled(false);
+    }
 
-	/**
-	 * Check that text has been inputed
-	 * @throws UnsupportedEncodingException 
-	 */
-	public void inputTextEditingDone() throws UnsupportedEncodingException
-	{
+    /**
+     * Check that text has been inputed
+     * @throws UnsupportedEncodingException
+     */
+    public void inputTextEditingDone() throws UnsupportedEncodingException
+    {
 
-		if (inputText.getText().toString().equals("")){
-			play.setEnabled(false);
-		}
+        if (inputText.getText().toString().equals("")){
+            play.setEnabled(false);
+        }
 
-		else {
-			InputStream stream = new ByteArrayInputStream(inputText.getText().toString().getBytes("UTF-8"));
-			BufferedReader re = new BufferedReader(new InputStreamReader(stream, "UTF8"));
-			
-			spritz.clear();
-			spritz.parseTxt(re); 
-			play.setEnabled(true);
-		}
-	}
+        else {
+            InputStream stream = new ByteArrayInputStream(inputText.getText().toString().getBytes("UTF-8"));
+            BufferedReader re = new BufferedReader(new InputStreamReader(stream, "UTF8"));
+
+            spritz.clear();
+            spritz.parseTxt(re);
+            play.setEnabled(true);
+        }
+    }
 }
