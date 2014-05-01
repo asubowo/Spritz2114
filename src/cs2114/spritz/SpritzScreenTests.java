@@ -22,10 +22,8 @@ public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 	private Button previous;
 	private Button play;
 	private Button pause;
-	private int delay;
 	private boolean playing;
 	private EditText inputText;
-	private RadioButton radio200;
 
 	// ----------------------------------------------------------
 	/**
@@ -102,11 +100,4 @@ public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 		assertFalse(next.isEnabled());
 	}
 	
-	/**
-	 * Tests radio button selection
-	 */
-	public void testRadioButtons() {
-		click(radio200);
-		assertEquals(200, delay);
-	}
 }

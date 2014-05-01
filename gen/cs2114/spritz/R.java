@@ -15,21 +15,26 @@ public final class R {
         public static final int spritz=0x7f020001;
     }
     public static final class id {
-        public static final int inputText=0x7f07000e;
+        public static final int blank=0x7f070005;
+        public static final int bottomArrow=0x7f070013;
+        public static final int headDisplay=0x7f070009;
+        public static final int inputText=0x7f070008;
         public static final int layout=0x7f070000;
+        public static final int middleDisplay=0x7f070006;
         public static final int next=0x7f070004;
         public static final int pause=0x7f070003;
         public static final int play=0x7f070002;
         public static final int previous=0x7f070001;
-        public static final int radio200=0x7f070007;
-        public static final int radio300=0x7f070008;
-        public static final int radio400=0x7f070009;
-        public static final int radio500=0x7f07000a;
-        public static final int radio600=0x7f07000b;
-        public static final int reset=0x7f07000d;
-        public static final int speedGroup=0x7f070006;
-        public static final int spritzDisplay=0x7f070005;
-        public static final int textView1=0x7f07000c;
+        public static final int radio200=0x7f07000d;
+        public static final int radio300=0x7f07000e;
+        public static final int radio400=0x7f07000f;
+        public static final int radio500=0x7f070010;
+        public static final int radio600=0x7f070011;
+        public static final int reset=0x7f070007;
+        public static final int speedGroup=0x7f07000c;
+        public static final int tailDisplay=0x7f07000a;
+        public static final int textView1=0x7f07000b;
+        public static final int topArrow=0x7f070012;
     }
     public static final class layout {
         public static final int spritzscreen=0x7f030000;
