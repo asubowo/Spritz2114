@@ -42,23 +42,90 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/spritzDisplay"
+        android:id="@+id/blank"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_above="@+id/layout"
         android:layout_centerHorizontal="true"
         android:background="#FFFFFF"
         android:gravity="center"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FF0000" />
+
+    <TextView
+        android:id="@+id/middleDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/layout"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:gravity="center"
         android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FF0000" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout"
+        android:layout_centerHorizontal="true"
+        android:text="Reset" />
+
+    <EditText
+        android:id="@+id/inputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reset"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="                   Paste text"
+        android:textStyle="italic"
+        android:maxLines="1" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/headDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/layout"
+        android:layout_toLeftOf="@+id/middleDisplay"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tailDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/layout"
+        android:layout_toRightOf="@+id/middleDisplay"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tailDisplay"
+        android:layout_alignRight="@+id/speedGroup"
+        android:text="WPM"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <RadioGroup
         android:id="@+id/speedGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="10dp" >
+        android:layout_alignTop="@+id/tailDisplay"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@+id/layout" >
 
         <RadioButton
             android:id="@+id/radio200"
@@ -90,39 +157,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="600" />
-
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/textView1"
+    <ImageView
+        android:id="@+id/topArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/speedGroup"
-        android:layout_alignRight="@+id/speedGroup"
-        android:text="WPM"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/layout"
         android:layout_centerHorizontal="true"
-        android:text="Reset" />
+        android:layout_alignTop="@+id/middleDisplay"
+        android:src="@android:drawable/arrow_down_float" />
 
-    <EditText
-        android:id="@+id/inputText"
+    <ImageView
+        android:id="@+id/bottomArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/speedGroup"
-        android:layout_centerHorizontal="true"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:hint="                   Paste text"
-        android:textStyle="italic"
-        android:maxLines="1" >
-
-        <requestFocus />
-    </EditText>
+        android:layout_above="@+id/layout"
+        android:layout_alignLeft="@+id/topArrow"
+        android:contentDescription="TODO"
+        android:src="@android:drawable/arrow_up_float" />
 
 </RelativeLayout>
