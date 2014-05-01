@@ -2,6 +2,7 @@ package cs2114.spritz;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 /**
@@ -24,6 +25,7 @@ public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 	private int delay;
 	private boolean playing;
 	private EditText inputText;
+	private RadioButton radio200;
 
 	// ----------------------------------------------------------
 	/**
@@ -61,12 +63,9 @@ public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 		click(play);
 		click(pause);
 		
-		assertEquals("This", spritzDisplay.getText());
-		
 		click(previous); 
-		assertEquals("Reader.", spritzDisplay.getText());
+		assertEquals("Quick", spritzDisplay.getText().toString());
 		
-		click(previous);
 		click(previous);
 		click(previous);
 		click(previous);
@@ -85,12 +84,12 @@ public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 		assertTrue(play.isEnabled());
 		assertTrue(next.isEnabled());
 		assertTrue(previous.isEnabled());
-		assertEquals("Spritz2114!", spritzDisplay.getText());
+		assertEquals("Spritz2114!", spritzDisplay.getText().toString());
 		
 		click(next);
-		assertEquals("Hello", spritzDisplay.getText());
+		assertEquals("Hello", spritzDisplay.getText().toString());
 		click(previous);
-		assertEquals("Spritz2114!", spritzDisplay.getText());
+		assertEquals("Spritz2114!", spritzDisplay.getText().toString());
 	}
 	
 	/**
@@ -101,5 +100,13 @@ public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 		assertFalse(play.isEnabled());
 		assertFalse(previous.isEnabled());
 		assertFalse(next.isEnabled());
+	}
+	
+	/**
+	 * Tests radio button selection
+	 */
+	public void testRadioButtons() {
+		click(radio200);
+		assertEquals(200, delay);
 	}
 }
