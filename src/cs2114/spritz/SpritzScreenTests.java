@@ -17,7 +17,9 @@ import android.widget.TextView;
 
 public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 
-	private TextView spritzDisplay;
+	private TextView middleDisplay;
+	private TextView headDisplay;
+	private TextView tailDisplay;
 	private Button next;
 	private Button previous;
 	private Button play;
@@ -62,7 +64,7 @@ public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 		click(pause);
 		
 		click(previous); 
-		assertEquals("Quick", spritzDisplay.getText().toString());
+		assertEquals("Quick", middleDisplay.getText().toString());
 		
 		click(previous);
 		click(previous);
