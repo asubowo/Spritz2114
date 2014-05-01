@@ -14,20 +14,13 @@ import android.widget.TextView;
  *
  */
 
-<<<<<<< HEAD
+
 public class SpritzScreenTests extends student.AndroidTestCase<SpritzScreen>{
 
 	private TextView middleDisplay;
 	private TextView headDisplay;
 	private TextView tailDisplay;
-=======
-public class SpritzScreenTests
-    extends student.AndroidTestCase<SpritzScreen>
-{
-    private TextView headDisplay;
-    private TextView middleDisplay;
-    private TextView tailDisplay;
->>>>>>> c1e325245690357997ac0d316e094e23b35fbaf7
+
 	private Button next;
 	private Button previous;
 	private Button play;
@@ -58,9 +51,9 @@ public class SpritzScreenTests
 	public void testInitial() {
 
 		assertFalse(previous.isEnabled());
-        assertEquals(" ", headDisplay.getText());
-        assertEquals(" ", middleDisplay.getText());
-        assertEquals(" ", tailDisplay.getText());
+		assertEquals(" ", headDisplay.getText());
+		assertEquals(" ", middleDisplay.getText());
+		assertEquals(" ", tailDisplay.getText());
 		assertFalse(next.isEnabled());
 		assertTrue(play.isEnabled());
 		assertFalse(playing);
@@ -72,26 +65,20 @@ public class SpritzScreenTests
 	public void testInitialWithPresentation() {
 		click(play);
 		click(pause);
-<<<<<<< HEAD
-		
+
 		click(previous); 
-		assertEquals("Quick", middleDisplay.getText().toString());
-		
-=======
-
 		click(previous);
-        assertEquals("Qu", headDisplay.getText().toString());
-        assertEquals("i", middleDisplay.getText().toString());
-        assertEquals("ck", tailDisplay.getText().toString());
+		assertEquals("Qu", headDisplay.getText().toString());
+		assertEquals("i", middleDisplay.getText().toString());
+		assertEquals("ck", tailDisplay.getText().toString());
 
->>>>>>> c1e325245690357997ac0d316e094e23b35fbaf7
 		click(previous);
 		click(previous);
 		click(previous);
 		click(previous); //This should make the program wrap to the end.
-        assertEquals("En", headDisplay.getText().toString());
-        assertEquals("j", middleDisplay.getText().toString());
-        assertEquals("oy!", tailDisplay.getText().toString());
+		assertEquals("En", headDisplay.getText().toString());
+		assertEquals("j", middleDisplay.getText().toString());
+		assertEquals("oy!", tailDisplay.getText().toString());
 
 	}
 
@@ -105,18 +92,18 @@ public class SpritzScreenTests
 		assertTrue(play.isEnabled());
 		assertTrue(next.isEnabled());
 		assertTrue(previous.isEnabled());
-        assertEquals("Sprit", headDisplay.getText().toString());
-        assertEquals("z", middleDisplay.getText().toString());
-        assertEquals("2114!", tailDisplay.getText().toString());
+		assertEquals("Spr", headDisplay.getText().toString());
+		assertEquals("i", middleDisplay.getText().toString());
+		assertEquals("tz2114!", tailDisplay.getText().toString());
 
 		click(next);
-        assertEquals("He", headDisplay.getText().toString());
-        assertEquals("l", middleDisplay.getText().toString());
-        assertEquals("lo", tailDisplay.getText().toString());
+		assertEquals("He", headDisplay.getText().toString());
+		assertEquals("l", middleDisplay.getText().toString());
+		assertEquals("lo", tailDisplay.getText().toString());
 		click(previous);
-        assertEquals("Sprit", headDisplay.getText().toString());
-        assertEquals("z", middleDisplay.getText().toString());
-        assertEquals("2114!", tailDisplay.getText().toString());
+		assertEquals("Sprit", headDisplay.getText().toString());
+		assertEquals("z", middleDisplay.getText().toString());
+		assertEquals("2114!", tailDisplay.getText().toString());
 	}
 
 	/**
