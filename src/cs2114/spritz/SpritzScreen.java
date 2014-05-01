@@ -63,6 +63,9 @@ public class SpritzScreen extends Screen {
 		SpannableString spanString = new SpannableString(spritz.next());
         if (spanString.length() > 1) {
         	int pos = (int) Math.floor(spanString.length()/2) - 1;
+        	if (pos > 3) {
+        		pos = 3;
+        	}
         	spanString.setSpan(new ForegroundColorSpan(Color.RED), pos, pos + 1, 0);
         }
         else
